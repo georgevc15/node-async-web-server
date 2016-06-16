@@ -1,5 +1,4 @@
-var express = require('express');
-
+/*var express = require('express');
 var app = express();
 
 var port = process.env.PORT || 3000;
@@ -10,4 +9,17 @@ app.get('/', function(req,res) {
 
 app.listen(port, function(){
 	console.log('Running on PORT' +port);
-})
+})*/
+
+var express = require('express');
+var app = express();
+
+app.set('port', (process.env.PORT || 3000));
+
+app.get('/', function(req,res) {
+	res.send('first page!');
+});
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
