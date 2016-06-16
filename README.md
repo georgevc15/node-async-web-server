@@ -1,0 +1,1 @@
+Async node web server that reads data from multiple servers. Data is stored in MongoDB, Redis is doing the cache and Express is the framework used for Node.js 

@@ -1,0 +1,22 @@
+{
+  "name": "node-async-web-server",
+  "version": "1.0.0",
+  "description": "Node web app build with Express, MongoDB and Redis that handels multiple servers at once",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "MongoDB",
+    "Redis",
+    "Express",
+    "Multiple",
+    "servers"
+  ],
+  "author": "George Codat Tudoran",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
