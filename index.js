@@ -1,25 +1,21 @@
-/*var express = require('express');
+var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 var port = process.env.PORT || 3000;
 
-app.get('/', function(req,res) {
+/*app.get('/', function(req,res) {
 	res.send('welcome');
-})
-
-app.listen(port, function(){
-	console.log('Running on PORT' +port);
+	//res.json({hello: 'world'});
 })*/
 
-var express = require('express');
-var app = express();
+var cats = require('./cats.js')(app);
 
-app.set('port', (process.env.PORT || 3000));
-
-app.get('/', function(req,res) {
-	res.send('first page!');
-});
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+var server = app.listen(port, function() {
+	console.log("Server running on port 3000");
 });
