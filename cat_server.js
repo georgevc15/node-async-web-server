@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({
 	//res.json({hello: 'world'});
 })*/
 
-var cats = require('./cat_routes.js')(app);
+var cats = require('./routes/cat.js')(app);
 
 var server = app.listen(port, function() {
-	console.log("Server running on port 3000");
+	console.log("Server running on port "+port);
 });
