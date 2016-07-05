@@ -10,10 +10,10 @@ console.log("Variabila port din routes "+port);
 
    if(port == 3002) {
     var catServerLink = 'http://localhost:3000/cat';
-    var dogServerLink = 'http://localhost:3001/dog';
+    //var dogServerLink = 'http://localhost:3001/dog';
    } else {
-    var catServerLink = 'https://cryptic-lowlands-67233.herokuapp.com/cat';
-    var dogServerLink = 'https://cryptic-lowlands-67233.herokuapp.com/dog';
+    var catServerLink = 'https://serene-plateau-90342.herokuapp.com/cat';
+    //var dogServerLink = 'https://cryptic-lowlands-67233.herokuapp.com/dog';
    }
 
 
@@ -36,7 +36,7 @@ module.exports = function(app) {
                     }
                 });
             },
-            dog: function(callback){
+           /* dog: function(callback){
                 r({uri: dogServerLink}, function(error, response, body) {
                     if (error) {
                         callback({service: 'dog', error: error});
@@ -48,7 +48,7 @@ module.exports = function(app) {
                         callback(response.statusCode);
                     }
                 });
-            }
+            }*/
         },
         function(error, results) {
             res.json({
