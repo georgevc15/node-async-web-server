@@ -7,8 +7,9 @@ var port = process.env.PORT || 3001;
 
 if(port === 3001) {
 	mongoose.connect('mongodb://localhost/dogs');
+	console.log("conectare locala");
 } else {
-    //mongoose.connect('mongodb://mongo_usr:mongo_pass@ds025603.mlab.com:25603/node-async');
+    mongoose.connect('mongodb://dog_usr:parola_dog@ds011785.mlab.com:11785/dog-db');
 	//console.log("Aici se va face conectarea cu heroku");
 }
 
