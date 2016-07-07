@@ -4,14 +4,23 @@ var Dog = require('../models/dog.js');
 module.exports = function(app) {
 
     /* Create */
-    app.post('/dog', function (req, res) {
-        var newDog = new Dog(req.body);
-        newDog.save(function(err) {
-            if (err) {
-                res.json({info: 'error during dog create', error: err});
-            };
-            res.json({info: 'dog created successfully'});
-        });
+    app.post('/dog', function (req, res, next) {
+        
+       var newPet = req.body;
+       if(!newPet.name || !newPet.age || !newPet.type) {
+                    res.sendStatus(400);
+                    return false;
+              } else {
+                var newDog = new Dog(req.body);
+                newDog.save(function(err) {
+                    if (err) {
+                        res.json({info: 'error during dog create', error: err});
+                    };
+                    res.json({info: 'dog created successfully'});
+                    
+                });
+              }
+
     });
 
     /* Read */

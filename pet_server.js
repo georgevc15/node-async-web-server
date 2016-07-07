@@ -9,14 +9,7 @@ app.use(bodyParser.urlencoded({
 
 var petRoutes = require('./routes/pet.js')(app);
 
-
-
-/*
-var server = app.listen(3002, function () {
-    console.log('Server running at http://127.0.0.1:3002/');
-});
-*/
-
+app.use(express.static('public')); //define root the root of our app
 
 var port = process.env.PORT || 3002;
 

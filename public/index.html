@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="vendor/css/bootstrap.css" />
+</head>
+<body>
+
+
+<div class="container-fluid">
+     
+     <div class="row">
+        <div class="col-md-12">
+          <h1 class="white">Async node server that is able to read data comming from unlimeted number of servers</h1>
+        </div>
+    </div>
+
+<div class="row">
+   <div class="col-md-12">  
+       
+       <div class="col-md-12">
+         <div class="alert failed" style="display:none">Name, age and type needs to be filled!</div>
+         <div class="alert success" style="display:none">Record added succesfully!</div>
+       </div>
+       
+        <div class="col-md-6">    
+           <div class="col-md-12"> 
+            <form id="form1">
+              <legend class="white">Add cats to server 1</legend>
+                  <input name="name" placeholder="Cat name" class="form-control"><br/>
+                  <input name="age" placeholder="Cat age" class="form-control"><br/>
+                  <input name="type" placeholder="Cat type" class="form-control"><br/>
+              <input type="Submit" class="btn btn-primary" value="Submit to server 1"> * server located here: https://serene-plateau-90342.herokuapp.com/cat
+            </form>
+          </div><!-- end first server -->
+
+
+           <div class="col-md-12"> 
+            <form id="form2">
+              <legend class="white">Add dogs to server 2</legend>
+                  <input name="name" placeholder="Dog name" class="form-control"><br/>
+                  <input name="age" placeholder="Dog age" class="form-control"><br/>
+                  <input name="type" placeholder="Dog type" class="form-control"><br/>
+              <input type="Submit" class="btn btn-primary" value="Submit to server 2"> server located here: https://evening-inlet-33905.herokuapp.com/dog
+            </form>
+          </div><!-- end second server -->
+         </div>
+
+     <div class="col-md-6 white-bg"> 
+        <h1>Pets from server 1 and 2</h1>
+        <ul class='block-list list-unstyled'></ul>
+     </div>
+
+
+    </div> <!--end wrapper servers and rows -->
+  </div>  <!--end row -->
+</div><!-- end container -->
+
+  <script src="vendor/js/jquery.js"></script>
+  <script src="vendor/js/bootstrap.min.js"></script>
+  <script src="js/client.js"></script>
+</body>
+</html>

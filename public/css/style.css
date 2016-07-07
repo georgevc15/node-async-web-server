@@ -1,0 +1,22 @@
+body {
+    background-image: url("bg.jpg");
+    background-color: #040c0e !important;
+}
+
+.alert {
+	background: #d9534f;
+	color:#FFF;
+}
+
+.success {
+	background: #5cb85c;
+	color:#FFF;
+}
+
+.white {
+	color: #fff;
+}
+
+.white-bg {
+	background: #fff;
+}
