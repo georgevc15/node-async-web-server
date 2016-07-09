@@ -43,7 +43,7 @@ $('#form2').on('submit', function(event) {
    var serverData = form.serialize();
    var currentUrl = window.location;
    
-   if(currentUrl == 'http://localhost:3002/') {  var serverLink = 'http://localhost:3001/dog';  } else {  var serverLink = 'https://serene-plateau-90342.herokuapp.com/cat';   }
+   if(currentUrl == 'http://localhost:3002/') {  var serverLink = 'http://localhost:3001/dog';  } else {  var serverLink = 'https://evening-inlet-33905.herokuapp.com/dog';   }
 
    $.ajax({
       type: 'POST', url: serverLink, data: serverData
