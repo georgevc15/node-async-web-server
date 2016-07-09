@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var cors = require('cors');
+//var cors = require('cors');
 
 var port = process.env.PORT || 3000;
 
@@ -14,11 +14,24 @@ if(port === 3000) {
 }
 
 
-app.use(cors());
+//app.use(cors());
+
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
+
+
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(allowCrossDomain);
 
 
 /*app.get('/', function(req,res) {

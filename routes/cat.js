@@ -2,16 +2,7 @@ var _ = require('lodash');
 var Cat = require('../models/cat.js');
 
 
-var express = require('express');
-var app = express();
-var cors = require('cors');
-app.use(cors());
-
-
 module.exports = function(app) {
-
-   
-    app.options('*', cors()); // include before other routes
     /* Create */
     app.post('/cat', function (req, res) {
         var newCat = new Cat(req.body);
@@ -81,16 +72,11 @@ module.exports = function(app) {
 
 
 /*
+
+var express = require('express');
+var router = express.Router();
+
 module.exports = function(router) {
-
-router.use(function(req, res, next) {  
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header('Access-Control-Allow-Methods', 'GET, POST','DELETE');
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-      next();
-});
-
-
 
   router.route('/cat')
        
