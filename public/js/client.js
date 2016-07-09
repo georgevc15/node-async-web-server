@@ -67,6 +67,28 @@ $('#form2').on('submit', function(event) {
 
 
 
+$(document).on('click',".delePet",function(event) {
+
+    
+    if(!confirm('Are you sure ?')){
+      return false;
+    }
+
+    var target = $(event.currentTarget);
+    var id = target.data('id');
+    var sUrl = target.data('url');
+
+
+    $.ajax({
+      type: 'DELETE',
+      crossDomain: true,
+      url: sUrl + '/' + id
+    }).done(function () {
+      target.parents('li').remove();
+    });
+
+
+  });
 
 
 
@@ -77,9 +99,17 @@ $('#form2').on('submit', function(event) {
    			var dogs	= pets.results.dog.data;
             var deleteImg = '<img src="../css/delete.png" width="15px">';
             var updateImg = '<img src="../css/edit.png" width="15px">';
+            var currentUrl = window.location;
+   			
+            if(currentUrl == 'http://localhost:3002/') {  
+               var serverLink1 = 'http://localhost:3000/cat'; 
+               var serverLink2 = 'http://localhost:3001/dog';  
+                  } else {  
+               var serverLink1 = 'https://serene-plateau-90342.herokuapp.com/cat'; 
+               var serverLink2 = 'https://evening-inlet-33905.herokuapp.com/dog';  
+            }
 
-   			//console.log(cats);
-   			//console.log(dogs);
+
 
    		var list = [];
    		var content, cats, dogs;
@@ -91,12 +121,11 @@ $('#form2').on('submit', function(event) {
    			var name = cats[i]['name'];
    			var type = cats[i]['type'];
    		
-   			content = '<a href="#stay">'+updateImg+'</a>  <a href="#stay">'+deleteImg+' </a> '+name;
-
-   			//console.log("id este"+id);
-   			//console.log(cat);
-			list.push($('<li>', { html: content }));
-   		}	
+   			content = '<a href="javascript:void(0)">'+updateImg+'</a>  <a href="javascript:void(0)" data-id='+id+' data-url='+serverLink1+' class="delePet">'+deleteImg+' </a> '+name;
+			
+         list.push($('<li>', { html: content }));
+   		
+      }	
 
 
    		for(var i in dogs) {
@@ -106,14 +135,11 @@ $('#form2').on('submit', function(event) {
    			var name = dogs[i]['name'];
    			var type = dogs[i]['type'];
    		
-   			content = '<a href="#stay">'+updateImg+'</a>  <a href="#stay">'+deleteImg+' </a> Name: '+name;
+   			content = '<a href="javascript:void(0)">'+updateImg+'</a>  <a href="javascript:void(0)" data-id='+id+' data-url='+serverLink2+' class="delePet">'+deleteImg+' </a> Name: '+name;
 
-   			//console.log("id este"+id);
-   			//console.log(content);
 			list.push($('<li>', { html: content }));
    		}	
 
-   			//console.log(list);
 
    			$('.block-list').append(list);
    }
