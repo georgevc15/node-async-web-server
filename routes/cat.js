@@ -1,8 +1,17 @@
 var _ = require('lodash');
 var Cat = require('../models/cat.js');
 
+
+var express = require('express');
+var app = express();
+var cors = require('cors');
+app.use(cors());
+
+
 module.exports = function(app) {
 
+   
+    app.options('*', cors()); // include before other routes
     /* Create */
     app.post('/cat', function (req, res) {
         var newCat = new Cat(req.body);
@@ -67,8 +76,6 @@ module.exports = function(app) {
             res.json({info: 'cat removed successfully'});
         });
     });
-
-
 };
 
 
