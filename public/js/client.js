@@ -20,7 +20,8 @@ $('#form1').on('submit', function(event) {
 		type: 'POST', url: serverLink, data: serverData
 	})
 	 .error(function() {
-	 	$('.failed').fadeIn().delay(3000).fadeOut('slow');	
+	 	//$('.failed').fadeIn().delay(3000).fadeOut('slow');
+      location.reload();	
 	 })
 	 .success(function(serverResponse){
          //appendToList([serverResponse]);
@@ -49,7 +50,8 @@ $('#form2').on('submit', function(event) {
       type: 'POST', url: serverLink, data: serverData
    })
     .error(function() {
-      $('.failed').fadeIn().delay(3000).fadeOut('slow'); 
+      //$('.failed').fadeIn().delay(3000).fadeOut('slow'); 
+      location.reload();
     })
     .success(function(serverResponse){
          //appendToList([serverResponse]);
