@@ -3,14 +3,21 @@ $(function(){
    $.get('/pets',appendToList);
 
 
+
 $('#form1').on('submit', function(event) {
 	event.preventDefault();
 
 	var form = $(this);
 	var serverData = form.serialize();
+   var currentUrl = window.location;
 
-	$.ajax({
-		type: 'POST', url: 'http://localhost:3000/cat', data: serverData
+   //console.log("currentUrl este "+currentUrl);
+   //http://localhost:3002/
+   
+   if(currentUrl == 'http://localhost:3002/') {  var serverLink = 'http://localhost:3000/cat';  } else {  var serverLink = 'https://serene-plateau-90342.herokuapp.com/cat';   }
+	
+   $.ajax({
+		type: 'POST', url: serverLink, data: serverData
 	})
 	 .error(function() {
 	 	$('.failed').fadeIn().delay(3000).fadeOut('slow');	
@@ -20,9 +27,9 @@ $('#form1').on('submit', function(event) {
 	 		//form.trigger(reset);
          $('.success').show(); 
         
-      setTimeout(function(){ 
-         location.reload();
-      }, 1000);
+			  setTimeout(function(){ 
+				 location.reload();
+			  }, 1000);
 
 	 });
 });
@@ -34,9 +41,12 @@ $('#form2').on('submit', function(event) {
 
    var form = $(this);
    var serverData = form.serialize();
+   var currentUrl = window.location;
+   
+   if(currentUrl == 'http://localhost:3002/') {  var serverLink = 'http://localhost:3001/dog';  } else {  var serverLink = 'https://serene-plateau-90342.herokuapp.com/cat';   }
 
    $.ajax({
-      type: 'POST', url: 'http://localhost:3001/dog', data: serverData
+      type: 'POST', url: serverLink, data: serverData
    })
     .error(function() {
       $('.failed').fadeIn().delay(3000).fadeOut('slow'); 
@@ -96,7 +106,7 @@ $('#form2').on('submit', function(event) {
    		
    			content = '<a href="#stay">'+updateImg+'</a>  <a href="#stay">'+deleteImg+' </a> Name: '+name;
 
-   			console.log("id este"+id);
+   			//console.log("id este"+id);
    			//console.log(content);
 			list.push($('<li>', { html: content }));
    		}	
