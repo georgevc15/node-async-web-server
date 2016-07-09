@@ -15,12 +15,6 @@ if(port === 3000) {
 
 
 app.use(cors());
-
-var corsOptions = {
-  origin: 'http://localhost:3002'
-};
-
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -31,6 +25,7 @@ app.use(bodyParser.urlencoded({
 	res.send('welcome');
 	//res.json({hello: 'world'});
 })*/
+
 
 var cats = require('./routes/cat.js')(app);
 

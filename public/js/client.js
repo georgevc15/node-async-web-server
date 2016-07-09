@@ -135,7 +135,7 @@ $(document).on('click',".delePet",function(event) {
    			var name = dogs[i]['name'];
    			var type = dogs[i]['type'];
    		
-   			content = '<a href="javascript:void(0)">'+updateImg+'</a>  <a href="javascript:void(0)" data-id='+id+' data-url='+serverLink2+' class="delePet">'+deleteImg+' </a> Name: '+name;
+   			content = '<a href="javascript:void(0)">'+updateImg+'</a>  <a href="javascript:void(0)" data-id='+id+' data-url='+serverLink2+' class="delePet">'+deleteImg+' </a> '+name;
 
 			list.push($('<li>', { html: content }));
    		}	
