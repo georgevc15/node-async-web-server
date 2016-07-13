@@ -70,9 +70,11 @@ module.exports = function(app) {
                                     if (!error && response.statusCode === 200) {
                                         //console.log(body.data);
                                         callback(null, body);
-                                        client.set(dogServerLink, JSON.stringify(body), function(error, body){
+                                        //client.set(dogServerLink, JSON.stringify(body), function(error, body){
+                                        client.setex(dogServerLink, 10, JSON.stringify(body), function (error) {  //cache 10 secunde pentru redis 
                                                 if (error) {throw error; };
-                                                console.log("al doilea if scriu in cache!"); 
+                                                //console.log("al doilea if scriu in cache!");
+                                                console.log(body);
                                         
                                         });
                                 } else {
