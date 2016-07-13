@@ -2,15 +2,15 @@ var r = require('request').defaults({
     json: true
 });
 
-var redis = require('redis');
 
-if (process.env.REDISTOGO_URL) { //heroku
-    var rtg   = require("url").parse(process.env.REDISTOGO_URL);
-    var client = redis.createClient(rtg.port, rtg.hostname);
-    client.auth(rtg.auth.split(":")[1]);
+if (process.env.REDIS_URL) { //heroku
+    var client = require('redis').createClient(process.env.REDIS_URL);
+    //console.log("redis heroku");
 } else { //local
+    console.log("redis local");
+    var redis = require('redis');
     var client = redis.createClient();
-    client.select((process.env.NODE_ENV || 'development').length);
+    //client.select((process.env.NODE_ENV || 'development').length);
 }
 
 
